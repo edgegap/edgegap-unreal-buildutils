@@ -91,7 +91,7 @@ echo "Docker GHCR login succeeded!";
 docker pull "ghcr.io/epicgames/unreal-engine:$ue_image_tag";
 
 image=$(basename "$PWD" | tr -d '\n' | sed 's/[[:space:]]\+/-/g' | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]//g');
-tag=$(date +%y.%m.%d-%H.%M.%S-%Z);
+tag=$(date +%y.%m.%d-%H.%M.%S-%Z | sed -E 's/[^a-zA-Z0-9.-]+/-/g');
 
 login_output=$(echo "$token" | docker login "$registry" -u "$username" --password-stdin 2>&1);
 
