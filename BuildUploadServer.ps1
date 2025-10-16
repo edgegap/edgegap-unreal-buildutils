@@ -96,7 +96,7 @@ Write-Host "Docker GHCR login succeeded!"
 docker pull "ghcr.io/epicgames/unreal-engine:$ue_image_tag"
 
 $image = (Split-Path -Leaf $(Get-Location)).ToLower() -replace '\s+','-' -replace '[^a-z0-9-]',''
-$tag = Get-Date -UFormat "%y.%m.%d-%H.%M.%S%Z"
+$tag = (Get-Date -UFormat "%y.%m.%d-%H.%M.%S%Z") -replace '[^a-z0-9-.]+','-'
 
 $loginResult = echo "$token" | docker login $registry -u "$username" --password-stdin 2>&1
 
