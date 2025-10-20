@@ -32,7 +32,7 @@ CMD ["/home/ue4/project/StartServer.sh"]
 
 # Install runtime dependencies
 RUN apt-get update && \
-    apt-get install openssh-server sudo jq curl -y && \
+    apt-get jq curl -y && \
     apt-get clean && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
