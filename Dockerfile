@@ -24,7 +24,7 @@ RUN /home/ue4/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun \
 # Second image is used to run the project build
 FROM ubuntu:22.04 AS runtime
 
-ARG TARGET_FILE_NAME=
+ARG TARGET_FILE_NAME
 ENV TARGET_FILE_NAME=${TARGET_FILE_NAME}
 
 # Specify container command for later (main process)
