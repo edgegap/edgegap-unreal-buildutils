@@ -119,3 +119,4 @@ Dockerfile
 
 ### Edgegap Utility Scripts ###
 edgegap-unreal-buildutils/BuildUploadServer*
+!edgegap-unreal-buildutils/steamclient.so
