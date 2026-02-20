@@ -128,7 +128,7 @@ docker build . `
     --build-arg UE_IMAGE_TAG=$ue_image_tag `
     --build-arg SERVER_CONFIG=$server_config `
     --build-arg PROJECT_FILE_NAME=$project_file_name `
-    --build-arg TARGET_FILE_NAME=$target_file_name
+    --build-arg TARGET_FILE_NAME=$target_file_name `
     $dockerBuildPlatformOption
 
 if ($LASTEXITCODE -ne 0) {
