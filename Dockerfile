@@ -14,11 +14,11 @@ ARG UE_BUILD_ARGS
 
 # Clean & build dedicated server for Linux
 RUN /home/ue4/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun \
-    -serverconfig=${SERVER_CONFIG} \
     -project=/tmp/project/${PROJECT_FILE_NAME}.uproject \
-    -utf8output -nodebuginfo -allmaps -noP4 -cook -ddc=NoZenLocalFallback -build -stage -prereqs -pak -package -archive \
-    -archivedirectory=/tmp/project/Packaged \
-    -platform=Linux -server -noclient \
+    -configuration=${SERVER_CONFIG} \
+    -clean -build -cook -stage -prereqs -pak -package -archive \
+    -utf8output -nodebuginfo -allmaps -noP4 -NoSharedDDC -ddc=noshared -archivedirectory=/tmp/project/Packaged \
+    -platform=Linux -server -noclient -SkipCookingEditorContent -FastCook \
     ${UE_BUILD_ARGS}
 
 # Second image is used to run the project build
